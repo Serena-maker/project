@@ -1,0 +1,163 @@
+body {
+  background: url(https://statics.ys7.com/ys7web/src/common/imgs/body_bg.png);
+  position: relative;
+  min-height: 100%;
+  height: auto !important; }
+
+.topnavs .in-topnav {
+  width: 960px;
+  height: 83px;
+  margin: 0 auto;
+  position: relative; }
+
+.topnavs .in-topnav a.topnav-logo {
+  display: block;
+  width: 315px;
+  height: 100%;
+  background: url(https://statics.ys7.com/ys7web/src/common/imgs/yingshiy-logo.png) no-repeat 0 25px;
+  float: left; }
+
+.topnavs .in-topnav .topnav-list {
+  height: 22px;
+  float: right;
+  margin-top: 33px; }
+
+.topnavs .in-topnav .topnav-list .topnav-item {
+  display: inline-block;
+  height: 22px;
+  padding-left: 5px;
+  padding-right: 5px;
+  float: left;
+  color: #BEBEBE;
+  line-height: 20px; }
+
+.topnavs .in-topnav .topnav-list .topnav-item a {
+  color: gray;
+  font-size: 13px; }
+
+.topnavs .in-topnav .topnav-list .topnav-item a.app-icon {
+  padding-left: 25px;
+  background: url(https://statics.ys7.com/ys7web/src/common/imgs/icons/app_icon.png) no-repeat left; }
+
+.topnavs .in-topnav .topnav-list .topnav-item a.triangle-down {
+  padding-right: 15px;
+  background: url(https://statics.ys7.com/ys7web/src/common/imgs/icons/icon-triangle-down.png) no-repeat right; }
+
+.topnavs .in-topnav .topnav-list .topnav-item.topnav-item-login {
+  padding-left: 19px;
+  padding-right: 20px;
+  background: url(https://statics.ys7.com/ys7web/src/common/imgs/login_bg.png) no-repeat;
+  margin-right: 4px; }
+
+.topnavs .in-topnav .topnav-list .topnav-item.topnav-item-login a {
+  color: #fff; }
+
+.topnavs .in-topnav .nav-box {
+  display: none;
+  right: 3px;
+  top: 30px;
+  position: absolute;
+  min-width: 76px;
+  border: 1px solid #d0d0d0;
+  background: white;
+  z-index: 100; }
+
+.topnavs .in-topnav .nav-box ul {
+  padding-bottom: 6px; }
+
+.topnavs .in-topnav .nav-box ul li {
+  height: 25px;
+  line-height: 25px;
+  padding-right: 5px;
+  text-align: center; }
+
+.topnavs .in-topnav .nav-box ul li a {
+  font-size: 13px;
+  color: #333; }
+
+.topnavs .in-topnav .nav-box ul li a.triangle-up {
+  padding-right: 12px;
+  background: url(https://statics.ys7.com/ys7web/src/common/imgs/icons/icon-triangle-up.png) no-repeat right; }
+
+.container {
+  height: 610px;
+  border: solid 1px #dedede;
+  background-color: rgba(61, 61, 61, 0);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.07);
+  position: relative;
+  width: 960px !important;
+  margin: 0 auto;
+  margin-top: 10px;
+  min-height: 400px;
+  padding-bottom: 10px;
+  line-height: 1.5;
+  background: #fff; }
+
+.container .registerform {
+  padding-left: 20px;
+  padding-top: 40px;
+  position: relative; }
+
+.container .registerform .title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #6c6c6c;
+  margin-bottom: 15px; }
+
+.container .registerform ul li {
+  font-size: 13px;
+  margin: 5px 0; }
+
+.container .registerform ul li label {
+  width: 65px;
+  display: inline-block; }
+
+.container .registerform ul li input {
+  display: inline-block;
+  height: 18px;
+  padding: 4px;
+  margin-bottom: 9px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #555555;
+  width: 450px;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px; }
+
+.container .registerform ul li input.check {
+  width: 15px;
+  margin: 2px  0 3px 80px;
+  float: left; }
+
+.container .registerform ul li input.testcode {
+  width: 80px; }
+
+.container .registerform ul li a {
+  text-decoration: underline; }
+
+.container .registerform ul li .next {
+  width: 150px;
+  height: 40px;
+  margin: 10px 0 0 80px;
+  background: orangered;
+  border: none;
+  border-radius: 3px; }
+
+.footer {
+  margin: auto;
+  width: 960px;
+  height: 32px;
+  color: #333; }
+
+.footer .wrapper {
+  height: 32px;
+  line-height: 32px; }
+
+.footer .wrapper .hikvision {
+  background: url(https://auth.ys7.com/assets/images/icon_logobt.png) no-repeat right top;
+  width: 111px;
+  height: 18px;
+  float: left;
+  padding-left: 220px;
+  margin-left: 0;
+  margin-top: 8px; }
