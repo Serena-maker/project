@@ -219,17 +219,60 @@ ul.loginbar {
         background: #f26a18;
         color: #fff; }
 
-.childlist {
-  z-index: 100;
-  position: relative;
+.child-list {
+  display: none;
+  position: absolute;
   top: 120px;
+  left: 0;
   width: 100%;
-  margin: auto;
-  height: 200px; }
-  .childlist ul {
-    width: 960px; }
-    .childlist ul li.childitem {
-      float: left; }
+  z-index: 50;
+  height: 200px;
+  background: #fff; }
+  .child-list ul {
+    margin: auto;
+    display: block;
+    width: 1200px; }
+    .child-list ul li.childitem {
+      width: 240px;
+      height: 200px;
+      float: left;
+      text-align: center;
+      overflow: hidden;
+      position: relative; }
+      .child-list ul li.childitem:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background-color: #ddd;
+        width: 1px;
+        height: 112px; }
+      .child-list ul li.childitem.enditem:after {
+        display: none; }
+      .child-list ul li.childitem .figure {
+        margin: 5px 56px;
+        width: 128px;
+        height: 118px; }
+        .child-list ul li.childitem .figure a {
+          display: block;
+          width: 100%;
+          height: 100%; }
+          .child-list ul li.childitem .figure a img {
+            width: 128px;
+            height: 118px; }
+      .child-list ul li.childitem h4.goodstitle {
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center; }
+        .child-list ul li.childitem h4.goodstitle a {
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+      .child-list ul li.childitem p.price {
+        font-size: 14px;
+        color: #ff4301; }
 
 .box {
   width: 1200px;

@@ -7,9 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/public.css">
+    <script src="libs/jquery.js"></script>
+    <script>
+    $(function(){
+        $(".top").load("http://localhost:83/pub/pub.html .nava")
+        $(".foot").load("http://localhost:83/pub/pub.html .foota")
+    })
+    </script>
 </head>
 <body>
-    <div id="nav">
+    <!-- <div id="nav">
         <div class="nav-toolbar">
             <div class="margin">
                 <ul class="toolbar-l">
@@ -36,8 +43,8 @@
                     </li>
                 </ul>
                 <ul class="loginbar">
-                    <li><a href="" class="login">登录</a></li>
-                    <li><a href="" class="register">注册</a></li>
+                    <li><a href="login.html" class="login">登录</a></li>
+                    <li><a href="register.html" class="register">注册</a></li>
                 </ul>
             </div>
         </div>
@@ -109,7 +116,7 @@
                     <h4 class="goodstitle"><a href="" title="【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头">【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头</a></h4>
                     <p class="price">￥759(起)</p>
                 </li>
-                <li class="childitem">
+                <li class="childitem enditem">
                     <div class="figure">
                         <a href=""><img src="images/7f3df4980472e7b5549fb9c14a630b95_middle.jpg-0249625952.jpg" alt=""></a>
                     </div>
@@ -118,7 +125,8 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
+    <div class="top"></div>
     <div class="margin">
         <div class="bannercont">
             <div class="banner box">
@@ -648,7 +656,7 @@
             </div>
         </div>
     </div>
-    <div id="footer">
+    <!-- <div id="footer">
         <div class="margin">
             <div class="service">
                 <ul>
@@ -798,7 +806,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+    <div class="foot"></div>
     <div class="sidebar">
         <ul>
             <li class="i-store">店铺必备</li>
