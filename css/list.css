@@ -1,0 +1,118 @@
+.homecont {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto; }
+  .homecont .listheader {
+    width: 100%; }
+    .homecont .listheader:after {
+      content: '';
+      display: block;
+      width: 100%;
+      visibility: hidden;
+      clear: both; }
+    .homecont .listheader .classify-nav {
+      position: relative;
+      margin-top: 10px;
+      height: 40px;
+      overflow: hidden;
+      border: 1px solid #e8e8e8;
+      float: left;
+      width: 100%; }
+      .homecont .listheader .classify-nav .classify-item {
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        vertical-align: middle;
+        color: #888; }
+        .homecont .listheader .classify-nav .classify-item .icon-btn-arrow-3 {
+          display: inline-block;
+          background: url(https://statics.ys7.com/newmall/b2c/images/search/ad.png);
+          width: 9px;
+          height: 5px;
+          background-repeat: no-repeat;
+          background-size: 100% 100%; }
+        .homecont .listheader .classify-nav .classify-item a {
+          display: block;
+          padding: 0 20px;
+          color: #767676;
+          line-height: 40px; }
+      .homecont .listheader .classify-nav .classify-nav-left {
+        position: absolute;
+        left: 0; }
+        .homecont .listheader .classify-nav .classify-nav-left .padding-span {
+          display: inline-block;
+          width: 20px; }
+      .homecont .listheader .classify-nav .classify-nav-cont {
+        margin: 0 85px; }
+      .homecont .listheader .classify-nav .classify-nav-right {
+        position: absolute;
+        right: 0;
+        top: 0; }
+  .homecont .product-list {
+    margin-top: 30px; }
+    .homecont .product-list .clearfix:after {
+      content: '';
+      display: block;
+      height: 0;
+      visibility: hidden;
+      clear: both; }
+    .homecont .product-list .product-item {
+      position: relative;
+      float: left;
+      width: 400px;
+      height: 472px;
+      box-sizing: border-box;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd; }
+      .homecont .product-list .product-item .product-figure {
+        margin: 30px 40px 27px;
+        width: 320px;
+        height: 296px; }
+        .homecont .product-list .product-item .product-figure a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          cursor: pointer; }
+      .homecont .product-list .product-item .product-title {
+        font-size: 18px;
+        font-weight: 400;
+        padding-left: 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden; }
+      .homecont .product-list .product-item .price {
+        margin-top: 10px;
+        padding-left: 20px;
+        font-size: 14px;
+        color: #ff4301; }
+      .homecont .product-list .product-item .product-bottom {
+        position: relative;
+        margin-top: 8px;
+        padding-left: 20px;
+        font-size: 12px;
+        color: #9e9e9e; }
+        .homecont .product-list .product-item .product-bottom p {
+          width: 220px;
+          height: 40px;
+          overflow: hidden; }
+        .homecont .product-list .product-item .product-bottom .product-link {
+          position: absolute;
+          right: 20px;
+          top: 0;
+          height: 40px;
+          width: 130px;
+          line-height: 40px; }
+        .homecont .product-list .product-item .product-bottom .link-btn {
+          cursor: pointer;
+          display: inline-block;
+          text-align: center;
+          padding: 0 10px;
+          vertical-align: middle;
+          font-size: 18px;
+          color: #f26a18;
+          border: 1px solid #f26a18;
+          border-radius: 3px;
+          box-sizing: border-box; }
+    .homecont .product-list .aside-right {
+      border-right: 0; }

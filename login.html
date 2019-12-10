@@ -19,15 +19,15 @@
                 <form action="" class="form">
                     <input type="text" name="" id="user" placeholder="用户名或手机号">
                     <input type="text" name="" id="pass" placeholder="请输入密码">
-                    <span class="login-tip"></span>
+                    <span class="login-tip" id="tipspan"></span>
                 </form>
                 <div class="misc">
                     <a href="" class="forgets">忘记密码?</a>
                 </div>
-                <a class="loginbtn">登&nbsp;&nbsp;录</a>
+                <a class="loginbtn" id="login">登&nbsp;&nbsp;录</a>
                 <div class="line"></div>
                 <p class="register-tip">还没有账户？那就注册一个吧！</p>
-                <a href="register.html" class="register">注册</a>
+                <a href="register.html" class="register" id="register">注册</a>
            </div>
        </div>
    </div>
@@ -39,4 +39,58 @@
         </div>
     </div>
 </body>
+<script>
+    class Login{
+        constructor(){
+            this.user = document.getElementById("user")
+            this.pass = document.getElementById("pass")
+            this.reg = document.getElementById("register")
+            this.log = document.getElementById("login")
+            this.span = document.getElementById("tipspan")
+            
+            this.addEvent();
+        }
+        addEvent(){
+            var that = this;
+            this.log.onclick = function(){
+                that.u = that.user.value;
+                that.p = that.pass.value;
+                
+                that.getMsg();
+            }
+            this.reg.onclick = function(){
+                location.href = "register.html";
+            }
+        }
+        getMsg(){
+            ajaxGet("http://127.0.0.2:82/api",function(res){
+                console.log(res);
+            },{
+                type:"login",
+                user:this.u,
+                pass:this.p
+            })
+        }
+    }
+    
+    new Login;
+    
+    function ajaxGet(url,cb,data){
+        data = data || {};
+        var str = "";
+        for(var i in data){
+            str = str + i+"="+data[i]+"&";
+        }
+        var d = new Date();
+        url = url + "?" + str + "__qft="+d.getTime();
+        var xhr = new XMLHttpRequest();
+        xhr.open("get",url,true);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                cb(xhr.responseText);
+            }
+        }
+        xhr.send();
+    }
+</script>
 </html>

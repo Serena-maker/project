@@ -119,13 +119,14 @@ a:hover{color:#525252+80 ;}}
         a:hover{background: #f26a18;color: #fff;}}}
 }
 .child-list{
-    display: none;
+    // display: none;
     position: absolute;
     top: 120px;
     left: 0;
     width: 100%;
     z-index: 50;
-    height: 200px;
+    height: 0px;
+    overflow: hidden;
     background: #fff;
     ul{
         margin: auto;

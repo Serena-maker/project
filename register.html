@@ -14,7 +14,7 @@
             <a href="" class="topnav-logo"></a>
             <ul class="topnav-list">
                 <li class="topnav-item topnav-item-login">
-                    <a href="" class="text-gray login">登录</a>
+                    <a href="" class="text-gray login" id="login">登录</a>
                 </li>
                 <li class="topnav-item topnav-line">|</li>
                 <li class="topnav-item">
@@ -53,44 +53,43 @@
             <ul>
                 <li>
                     <label for="username">用户名：</label>
-                    <input type="text" name="usernme" placeholder="4-20个字符（英文、数字、下划线）" >
+                    <input type="text" name="username" id="user" placeholder="4-20个字符（英文、数字、下划线）" >
                     <span></span>
                 </li>
                 <li>
                     <label for="pass">密码：</label>
-                    <input type="password" name="pass" placeholder="8-30个字符(包含数字、小写字母、大写字母、特殊符号中的三类及以上字符)" >
+                    <input type="password" name="pass" id="pass" placeholder="8-30个字符(包含数字、小写字母、大写字母、特殊符号中的三类及以上字符)" >
                     <span></span>
                 </li>
                 <li>
                     <label for="repass">确认密码：</label>
-                    <input type="password" name="repass" placeholder="请再次输入密码" >
+                    <input type="password" name="repass" id="pass2" placeholder="请再次输入密码" >
                     <span></span>
                 </li>
                 <li>
                     <label for="email">邮箱：</label>
-                    <input type="email" name="email" id="" placeholder="请输入您的常用邮箱地址（选填）">
+                    <input type="email" name="email" id="email" placeholder="请输入您的常用邮箱地址（选填）">
                     <span></span>
                 </li>
                 <li>
                     <label for="">电话号码：</label>
-                    <input type="tel" name="" placeholder="请输入手机（或小灵通）号码">
+                    <input type="tel" name="" id="tel" placeholder="请输入手机（或小灵通）号码">
                     <span></span>
                 </li>
                 <li>
                     <label for="">验证码：</label>
                     <input type="text" placeholder="请输入验证码" class="testcode">
-                    <span></span>
-                    <a href="">看不清</a>
+                    <span id="random"></span>
                 </li>
                 <li>
-                    <input type="checkbox" name="" id="" class="check" checked>
+                    <input type="checkbox" name="" class="check" checked>
                     <label for="">我同意</label>
                     <a href="">《萤石服务协议》</a>
                     <a href="">《萤石隐私政策》</a>
                     <i>您要先同意服务条款，才能注册服务哦</i>
                 </li>
                 <li>
-                    <button class="next">下一步</button>
+                    <button class="next" id="register">下一步</button>
                 </li>
             </ul>
         </form>
@@ -103,4 +102,162 @@
         </div>
     </div>
 </body>
+<script>
+    class Register{
+        constructor(){
+            this.user = document.querySelector(".registerform #user");
+            this.pass = document.querySelector(".registerform #pass");
+            this.pass2 = document.querySelector(".registerform #pass2");
+            this.email=document.querySelector(".registerform #email")
+            this.tel=document.getElementById("tel");
+            this.code=document.querySelector(".testcode");
+            this.random=document.querySelector("#random");
+            this.reg = document.querySelector(".registerform #register");
+            this.log = document.querySelector("#login");
+            // this.span = document.getElementById("span")
+            this.u=this.p=this.p2=false;
+            this.str;
+            this.addEvent();
+            this.testCode();
+        }
+        testCode(){
+            this.str="";
+            for(var j=0;j<4;j++){
+            var num=Math.round(Math.random()*(122-48)+48);
+                if((num>57 && num<65) || (num<97 && num>90)){
+                    j--;
+                }else{
+                    this.str+=String.fromCharCode(num);
+                }
+            }
+            this.random.innerHTML=this.str;
+        }
+        addEvent(){
+            var that = this;
+            this.user.oninput=function(){
+                var ureg=/^\w{4,20}$/;
+                if(ureg.test(this.value)){
+                    this.nextElementSibling.innerHTML="用户名正确";
+                }else{
+                    this.nextElementSibling.innerHTML="用户名格式错误";
+                }
+            }
+            this.pass.oninput=function(){
+                if(this.value == ""){
+                    this.nextElementSibling.innerHTML = "不允许为空";
+                    that.p = false;
+                    return;
+                }
+                // 用来记录是否出现数字n，字母a，特殊t的状态变量
+                var n=0;
+                var a=0;
+                var t=0;
+                var l=0;
+                // 单独验证，查询是否存在，而不需要整体验证
+                var numReg = /\d/;
+                var azReg = /[a-z]/i;
+                var tsReg = /[^\da-z]/i;
+                var pReg=/^[\w\W]{8,30}$/i;
+                if(numReg.test(this.value)){
+                    n=1;
+                }
+                if(azReg.test(this.value)){
+                    a=1;
+                }
+                if(tsReg.test(this.value)){
+                    t=1;
+                }
+                if(pReg.test(this.value)){
+                    l=1;
+                }
+                switch(n+a+t){
+                    case 1:
+                        this.nextElementSibling.innerHTML = "一类";break;
+                    case 2:
+                        this.nextElementSibling.innerHTML = "两类";break;
+                    case 3:
+                        this.nextElementSibling.innerHTML = "三类";break;
+                }
+                if(n+a+t+l==4){
+                    this.nextElementSibling.innerHTML ="密码格式正确";
+                }else{
+                    return;
+                }
+                that.p = true;
+
+                if(that.pass2.value == "") return;
+                if(this.value == that.pass2.value){
+                    that.pass2.nextElementSibling.innerHTML = "一致";
+                    that.p2 = true;
+                }else{
+                    that.pass2.nextElementSibling.innerHTML = "不一致";
+                    that.p2 = false;
+                }
+            }
+            this.pass2.oninput = function(){
+                if(this.value == that.pass.value){
+                    this.nextElementSibling.innerHTML = "一致";
+                    that.p2 = true;
+                }else{
+                    this.nextElementSibling.innerHTML = "不一致";
+                    that.p2 = false;
+                }
+            }
+            this.email.oninput=function(){
+                var eReg=/\w+@[a-z0-9]+\.[a-z]+/i;
+                if(eReg.test(this.value)){
+                    this.nextElementSibling.innerHTML="邮箱格式正确";
+                }else{
+                    this.nextElementSibling.innerHTML="邮箱格式错误";
+                }
+            }
+            this.tel.onblur=function(){
+                var telReg=/^1\d{10}$/;
+                if(telReg.test(this.value)){
+                    this.nextElementSibling.innerHTML="号码格式正确";
+                }else{
+                    this.nextElementSibling.innerHTML="号码错误";
+                }
+            }
+            this.reg.onclick = function(){
+                that.u = that.user.value;
+                that.p = that.pass.value;
+                that.setMsg();
+            }
+            this.log.onclick = function(){
+                location.href = "login.html";
+            }
+        }
+        setMsg(){
+            ajaxPost("http://127.0.0.2:82/api",function(res){
+                console.log(res);
+            },{
+                type:"register",
+                user:this.u,
+                pass:this.p
+            })
+        }
+    }
+    
+    new Register;
+    
+    
+    function ajaxPost(url,cb,data){
+        var str = "";
+        for(var i in data){
+            str += `${i}=${data[i]}&`;
+        }
+        str = str.slice(0,str.length-1)
+        var ajax = new XMLHttpRequest();
+        ajax.open("post",url,true);
+        ajax.onreadystatechange = function(){
+            if(ajax.readyState === 4 && ajax.status === 200){
+                cb(ajax.responseText);
+            }
+        }
+        ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        ajax.send(str);
+    }
+        	
+</script>
 </html>

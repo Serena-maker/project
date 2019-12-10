@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="pub/pub.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="sass/list.css">
+    <script src="libs/jquery.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/cookie.js"></script>
+    <script>
+    $(function(){
+        $(".top").load("http://localhost:83/pub/pub.html .nava")
+        $(".foot").load("http://localhost:83/pub/pub.html .foota")
+    })
+    </script>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="homecont margin">
+        <div class="listheader">
+            <p><a href="index.html">首页</a><i>></i><a href="">所有分类</a></p>
+            <div class="classify-nav">
+                <ul class="classify-nav-left">
+                    <li class="classify-item">
+                        <span class="padding-span"></span>
+                        产品分类:
+                    </li>
+                </ul>
+                <ul class="classify-nav-cont">
+                    <li class="classify-item">
+                        <a href="/search/index.html?cat=3" class="param-item ">摄像机</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                        <a href="/search/index.html?cat=118" class="param-item ">智能门锁</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=140" class="param-item ">猫眼门铃</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=39" class="param-item ">套装</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=24" class="param-item ">硬盘录像机</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=228" class="param-item ">智能家居系统</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=51" class="param-item ">传感报警</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=188" class="param-item ">儿童看护</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=194" class="param-item ">行车记录仪</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=21" class="param-item ">运动相机</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=33" class="param-item ">网络通讯</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=120" class="param-item ">汽车用品</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=87" class="param-item ">配件</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=60" class="param-item ">服务产品</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=210" class="param-item ">智能存储</a>
+                    </li>
+                                                                                      <li class="classify-item">
+                            <a href="/search/index.html?cat=232" class="param-item ">萤石生态产品</a>
+                    </li>
+                </ul>
+                <ul class="classify-nav-right">
+                    <li class="classify-item block-tail" id="block-tail">
+                        <a href="#" class="more-btn"> 
+                            <span class="more-text">全部</span> 
+                            <span class="arrow icon-btn-arrow-3"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-list">
+            <ul class="clearfix">
+
+			</ul>
+        </div>
+    </div>
+    <div class="foot"></div>
+</body>
+<script>
+    class List{
+        constructor(){
+            //获取数据的地址
+            this.url="http://localhost:83/json/goods.json";
+            // 数据要放在cont中
+            this.cont=document.querySelector(".clearfix");
+            // 数据在json中，要请求数据，通过ajax
+            this.load();
+            this.addEvent();
+        }
+        load(){
+            var that=this;
+            //res 为接收成功后的数据
+            ajaxGet(this.url,function(res){
+                that.res=JSON.parse(res);
+                // console.log(that.res);
+                //解析数据渲染页面
+                that.display();
+            })
+        }
+        display(){
+            //查看数据
+            // console.log(this.res);
+            var str="";
+            for(var i=0;i<this.res.length;i++){
+                // goodsId点击按钮定位商品
+            str+=`<li class="product-item" index="${this.res[i].goodsId}">
+					<div class="product-figure">
+						<a >
+							<img src="${this.res[i].img}">
+						</a>
+					</div>
+					<h3 class="product-title" title="${this.res[i].name}">${this.res[i].name}</h3>
+					<p class="price">${this.res[i].price}</p>
+					<div class="product-bottom">
+						<p title="${this.res[i].title}">${this.res[i].title}</p>
+						<a class="link-btn product-link" id="addCar">
+                                立刻购买
+                        </a>
+                    </div>
+                </li>`;
+            }
+            // 将数据插入页面中cont,innerHTML可以渲染页面
+            this.cont.innerHTML=str;
+        }
+        addEvent(){
+            var that=this;
+            //页面初始没有按钮em，所有要用事件委托，将事件监听绑定给父元素cont
+            this.cont.addEventListener("click",function(eve){
+                var e=eve || window.event;
+                var target=e.target || e.srcElement;
+                // 判断点击的是否是立即购买
+                console.log(target.id);
+                
+                if(target.id=="addCar"){
+                    // 根据所点击的a找到它爸爸div身上存储goodsId的index属性，用来定位所选商品
+                    console.log(target.parentNode.parentNode);
+                    that.id=target.parentNode.parentNode.getAttribute("index");
+                    // 把点击的数据存储到cookie中，让下个页面获取
+                    that.setCookie();
+                }
+            })
+        }
+        setCookie(){
+            // 判断是否是第一次加入购物车，没有值就给空数组，有就解析 
+            this.goods=getCookie("goodsDECookie")? JSON.parse(getCookie("goodsDECookie")):[];
+            // 如果length<1，代表没有数据,没有数据没办法遍历，所以要判断，是第一次加入，直接加入
+            if(this.goods.length<1){
+                // 将数据存入数组内，存商品的id和数量
+                this.goods.push({
+                    id:this.id,
+                    num:1,
+                    check:0
+                })
+            }else{ 
+                var i=0;
+                var onoff=this.goods.some((val,idx)=>{
+                    i=idx;
+                    return val.id===this.id;
+                })
+                if(!onoff){
+                    this.goods.push({
+                        id:this.id,
+                        num:1,
+                        check:0
+                    })
+                }else{
+                    this.goods[i].num++;
+                }
+            }
+            // 操作完获取的cookie之后，再将cookie塞进去
+            setCookie("goodsDECookie",JSON.stringify(this.goods))
+        }
+    }
+    new List();
+</script>
+</html>

@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/public.css">
     <script src="libs/jquery.js"></script>
+    <script src="js/index.js"></script>
     <script>
     $(function(){
-        $(".top").load("http://localhost:83/pub/pub.html .nava")
-        $(".foot").load("http://localhost:83/pub/pub.html .foota")
+        $(".top").load("http://localhost:83/pub/pub.html .nava");
+        $(".foot").load("http://localhost:83/pub/pub.html .foota");
     })
     </script>
 </head>
@@ -818,7 +819,7 @@
         </ul>
     </div>
 </body>
-<script src="libs/jquery.js"></script>
+<!-- <script src="libs/jquery.js"></script> -->
 <script src="js/jquery.banner.2.js"></script>
 <script>
     //使用该插件必须的格式和基础样式设置
@@ -888,5 +889,10 @@
 				scrollTop:t
             })
     })
+    $(".nav-list").find(".item-link").mouseenter(function(){
+        $(".child-list").css({height:0}).stop().animate({height:200});
+    })
+        console.log($(".nav-list"));
+        
 </script>
 </html>
