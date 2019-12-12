@@ -60,7 +60,7 @@
         class Car{
             constructor(){
                 // 获取数据
-                this.url="http://localhost:83/json/goods.json";
+                this.url="http://localhost:83/json/search.json";
                 // 数据要放在tbody中
                 this.tbody=document.querySelector("tbody");
                 this.snum=document.querySelector(".snum");
@@ -78,6 +78,8 @@
                 ajaxGet(this.url,(res)=>{
                     this.res=JSON.parse(res);
                     this.getCookie();
+                    console.log(res);
+                    
                 })
             }
             getCookie(){
