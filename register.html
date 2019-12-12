@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="public.css">
-    <link rel="stylesheet" href="sass/register.css">
+    <link rel="stylesheet" href="css/register.css">
+    <script src="js/cookie.js"></script>
 </head>
 <body>
     <div class="topnavs">
@@ -14,7 +15,7 @@
             <a href="" class="topnav-logo"></a>
             <ul class="topnav-list">
                 <li class="topnav-item topnav-item-login">
-                    <a href="" class="text-gray login" id="login">登录</a>
+                    <a href="login.html" class="text-gray login" id="login">登录</a>
                 </li>
                 <li class="topnav-item topnav-line">|</li>
                 <li class="topnav-item">
@@ -89,7 +90,8 @@
                     <i>您要先同意服务条款，才能注册服务哦</i>
                 </li>
                 <li>
-                    <button class="next" id="register">下一步</button>
+                    <input type="button" class="next" id="register" value="下一步">
+                    <span class="retips"></span>
                 </li>
             </ul>
         </form>
@@ -114,9 +116,11 @@
             this.random=document.querySelector("#random");
             this.reg = document.querySelector(".registerform #register");
             this.log = document.querySelector("#login");
+            this.span=document.querySelector(".retips");
             // this.span = document.getElementById("span")
             this.u=this.p=this.p2=false;
             this.str;
+            this.status=0;
             this.addEvent();
             this.testCode();
         }
@@ -138,6 +142,7 @@
                 var ureg=/^\w{4,20}$/;
                 if(ureg.test(this.value)){
                     this.nextElementSibling.innerHTML="用户名正确";
+                    that.status++;
                 }else{
                     this.nextElementSibling.innerHTML="用户名格式错误";
                 }
@@ -180,6 +185,7 @@
                 }
                 if(n+a+t+l==4){
                     this.nextElementSibling.innerHTML ="密码格式正确";
+                    that.status++;
                 }else{
                     return;
                 }
@@ -207,6 +213,7 @@
                 var eReg=/\w+@[a-z0-9]+\.[a-z]+/i;
                 if(eReg.test(this.value)){
                     this.nextElementSibling.innerHTML="邮箱格式正确";
+                    that.status++;
                 }else{
                     this.nextElementSibling.innerHTML="邮箱格式错误";
                 }
@@ -215,49 +222,65 @@
                 var telReg=/^1\d{10}$/;
                 if(telReg.test(this.value)){
                     this.nextElementSibling.innerHTML="号码格式正确";
+                    that.status++;
                 }else{
                     this.nextElementSibling.innerHTML="号码错误";
                 }
             }
             this.reg.onclick = function(){
+                console.log(that.status);
+                
+                if(that.status!=4 || that.code.value!=that.random.innerHTML) return;
                 that.u = that.user.value;
                 that.p = that.pass.value;
                 that.setMsg();
+                // console.log(1);
             }
             this.log.onclick = function(){
                 location.href = "login.html";
             }
         }
         setMsg(){
-            ajaxPost("http://127.0.0.2:82/api",function(res){
-                console.log(res);
-            },{
-                type:"register",
-                user:this.u,
-                pass:this.p
-            })
-        }
-    }
-    
-    new Register;
-    
-    
-    function ajaxPost(url,cb,data){
-        var str = "";
-        for(var i in data){
-            str += `${i}=${data[i]}&`;
-        }
-        str = str.slice(0,str.length-1)
-        var ajax = new XMLHttpRequest();
-        ajax.open("post",url,true);
-        ajax.onreadystatechange = function(){
-            if(ajax.readyState === 4 && ajax.status === 200){
-                cb(ajax.responseText);
-            }
-        }
-        ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-        ajax.send(str);
-    }
-        	
+                console.log(1);
+                
+//				数据格式:[{user:"admin",pass:"123",onoff:0},{...},{...},...]
+				this.msg = getCookie("userMsg") ? JSON.parse(getCookie("userMsg")) : [];
+//				第一个用户
+				if(this.msg.length<1){
+					this.msg.push({
+						user:this.u,
+						pass:this.p,
+						onoff:0
+					})
+					this.success();
+				}else{
+//				非第一个用户
+//					重名了
+					var type = this.msg.some((val,idx)=>{
+						return val.user === this.u;
+					});
+					if(type){
+						this.span.innerHTML = "用户名重复";
+					}else{
+//					没重名,直接注册
+						this.msg.push({
+							user:this.u,
+							pass:this.p,
+							onoff:0
+						})
+						this.success();
+					}
+				}
+				setCookie("userMsg",JSON.stringify(this.msg));
+			}
+			success(){
+				this.span.innerHTML = "注册成功，5秒后<a href='login.html'>跳转到登录</a>";
+				setTimeout(()=>{
+					location.href = "login.html";
+				},5000)
+			}
+		}
+		
+		new Register;
 </script>
 </html>

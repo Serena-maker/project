@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/public.css">
+    <script src="js/cookie.js"></script>
 </head>
 <body>
    <div class="header">
@@ -63,34 +64,28 @@
             }
         }
         getMsg(){
-            ajaxGet("http://127.0.0.2:82/api",function(res){
-                console.log(res);
-            },{
-                type:"login",
-                user:this.u,
-                pass:this.p
-            })
-        }
+				this.msg = getCookie("userMsg") ? JSON.parse(getCookie("userMsg")) : [];
+				console.log(this.msg);
+                
+				var type = 0;
+				for(var i=0;i<this.msg.length;i++){
+					if(this.msg[i].user == this.u && this.msg[i].pass == this.p){
+						location.href = "index.html";
+						this.msg[i].onoff = 1;
+						setCookie("userMsg",JSON.stringify(this.msg))
+						type = 1;
+					}else if(this.msg[i].user == this.u && this.msg[i].pass != this.p){
+						this.span.innerHTML = "密码错误";
+						type = 2;
+					}
+				}
+				if(type == 0){
+					this.span.innerHTML = "用户名不存在,请<a href='register.html'>注册</a>";
+				}
+			}
     }
     
     new Login;
     
-    function ajaxGet(url,cb,data){
-        data = data || {};
-        var str = "";
-        for(var i in data){
-            str = str + i+"="+data[i]+"&";
-        }
-        var d = new Date();
-        url = url + "?" + str + "__qft="+d.getTime();
-        var xhr = new XMLHttpRequest();
-        xhr.open("get",url,true);
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState == 4 && xhr.status == 200){
-                cb(xhr.responseText);
-            }
-        }
-        xhr.send();
-    }
 </script>
 </html>

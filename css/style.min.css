@@ -33,7 +33,7 @@
   background: url(../images/arrow-white.png) no-repeat center center; }
 
 #nav .nav-toolbar ul.toolbar-l li a:hover {
-  color: #a2a2a2; }
+  color: #777; }
 
 #nav .nav-toolbar ul.toolbar-r {
   height: 40px;
@@ -49,7 +49,7 @@
   line-height: 40px; }
 
 #nav .nav-toolbar ul.toolbar-r li a:hover {
-  color: #a2a2a2; }
+  color: #777; }
 
 #nav .nav-toolbar ul.toolbar-r li .cart {
   padding: 0 15px;
@@ -163,7 +163,12 @@ ul.loginbar li a:after {
   background: #fff; }
 
 ul.loginbar li a:hover {
-  color: #a2a2a2; }
+  color: #777; }
+
+.menue-box {
+  position: relative;
+  height: 90px;
+  overflow: hidden; }
 
 .nav-top {
   height: 90px; }
@@ -201,6 +206,9 @@ ul.loginbar li a:hover {
 
 .nav-top .middle-inner .innerscroll li.list-item a.first {
   padding: 40px 15px 20px 0px; }
+
+.nav-top .middle-inner .innerscroll li.list-item a:hover {
+  color: #f26a18; }
 
 .nav-top .searchbox {
   float: right;
@@ -269,11 +277,11 @@ ul.loginbar li a:hover {
 
 .child-list {
   position: absolute;
-  top: 120px;
+  top: 90px;
   left: 0;
   width: 100%;
   z-index: 50;
-  height: 0px;
+  height: 200px;
   overflow: hidden;
   background: #fff; }
 
@@ -553,39 +561,77 @@ ul.loginbar li a:hover {
 .goodscont .partcard .cardbody .goodslist {
   margin-left: 240px; }
 
-.goodscont .servicecard, .goodscont .videocard {
+.goodscont .servicecard {
   margin-top: 43px;
   position: relative; }
 
-.goodscont .servicecard .cardheader, .goodscont .videocard .cardheader {
+.goodscont .servicecard .cardheader {
   position: relative;
   width: 100%; }
 
-.goodscont .servicecard .cardheader h2, .goodscont .videocard .cardheader h2 {
+.goodscont .servicecard .cardheader h2 {
   font-weight: 200;
   font-size: 24px;
   color: #2b2b2b; }
 
-.goodscont .servicecard .cardheader a, .goodscont .videocard .cardheader a {
+.goodscont .servicecard .cardheader a {
   color: #232323;
   position: absolute;
   right: 0;
   top: 6px;
   font-size: 12px; }
 
-.goodscont .servicecard .cardbody, .goodscont .videocard .cardbody {
+.goodscont .servicecard .cardbody {
   margin-top: 18px; }
 
-.goodscont .servicecard .cardbody .serviceitem, .goodscont .videocard .cardbody .serviceitem {
+.goodscont .servicecard .cardbody .serviceitem {
   float: left;
   width: 390px;
   height: 262px;
   margin-right: 15px; }
 
-.goodscont .servicecard .cardbody .serviceitem.enditem, .goodscont .videocard .cardbody .serviceitem.enditem {
+.goodscont .servicecard .cardbody .serviceitem.enditem {
   margin-right: 0; }
 
-.goodscont .servicecard .cardfoot, .goodscont .videocard .cardfoot {
+.goodscont .servicecard .cardfoot {
+  height: 1px;
+  width: 100%;
+  background: #e2e2e2;
+  margin-top: 55px; }
+
+.goodscont .videocard {
+  margin-top: 43px;
+  position: relative; }
+
+.goodscont .videocard .cardheader {
+  position: relative;
+  width: 100%; }
+
+.goodscont .videocard .cardheader h2 {
+  font-weight: 200;
+  font-size: 24px;
+  color: #2b2b2b; }
+
+.goodscont .videocard .cardheader a {
+  color: #232323;
+  position: absolute;
+  right: 0;
+  top: 6px;
+  font-size: 12px; }
+
+.goodscont .videocard .cardbody {
+  margin-top: 18px; }
+
+.goodscont .videocard .cardbody .videoitem {
+  float: left;
+  width: 395px;
+  height: 326px;
+  margin-right: 7px; }
+
+.goodscont .videocard .cardbody .videoitem.enditem {
+  margin-right: 0; }
+
+.goodscont .videocard .cardfoot {
   height: 1px;
   width: 100%;
   background: #e2e2e2;
@@ -595,7 +641,7 @@ ul.loginbar li a:hover {
   height: 530px;
   width: 100%;
   background-color: #1f1f1f;
-  margin-top: 20px; }
+  margin-top: 30px; }
 
 #footer .service {
   width: 1200px;

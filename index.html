@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/public.css">
     <script src="libs/jquery.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/cookie.js"></script>
     <script>
     $(function(){
-        $(".top").load("http://localhost:83/pub/pub.html .nava");
+        // $(".top").load("http://localhost:83/pub/pub.html .nava");
         $(".foot").load("http://localhost:83/pub/pub.html .foota");
+        // $(".middle-inner").find(".list-item").mouseenter(function(){
+        //     $(".child-list").css({height:0}).stop().animate({height:200},300);
+        // })
+        // $(".middle-inner").find(".list-item").mouseleave(function(){
+        //     $(".child-list").css({height:200}).stop().animate({height:0},300);
+        // })
+        
     })
+    window.onload=function(){
+        $(".middle-inner").mouseenter(function(){
+            $(".menue-box").css({height:90}).stop().animate({height:290},300);
+        })
+        $(".menue-box").mouseleave(function(){
+            $(".menue-box").css({height:290}).stop().animate({height:90},300);
+        })
+    }
     </script>
 </head>
 <body>
-    <!-- <div id="nav">
+    <div id="nav">
         <div class="nav-toolbar">
             <div class="margin">
                 <ul class="toolbar-l">
@@ -30,9 +46,9 @@
                     <li><a href=""><i></i>进入萤石云</a></li>
                 </ul>
                 <ul class="toolbar-r">
-                    <li><a href="">我的订单</a></li>
+                    <li><a href="car.html">我的订单</a></li>
                     <li class="header-cart">
-                        <div class="cart"><i class="car"></i><span>(0)</span></div>
+                        <div class="cart"><a href="list.html"><i class="car"></i></a><span></span></div>
                         <div class="cartcont"><div class="mini"><p>购物车中还没有商品，快去选购吧！</p></div></div>
                     </li>
                     <li class="header-code">
@@ -49,85 +65,52 @@
                 </ul>
             </div>
         </div>
-        <div class="nav-top">
-            <div class="margin">
-                <div class="logo">
-                    <a href=""><img src="images/logo.png" alt="萤石商城官网"></a>
-                </div>
-                <div class="nav-list">
-                    <div class="middle-inner">
-                        <ul class="innerscroll">
-                            <li class="list-item"><a href="" class="item-link first">摄像机</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">智能锁</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">猫眼门铃</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">套装方案</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">录像机</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">传感报警</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">智能控制</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">运动数码</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">儿童看护</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">智能存储</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">网络通讯</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">配件</a><div class="itemchild"></div></li>
-                            <li class="list-item"><a href="" class="item-link">更多</a><div class="itemchild"></div></li>
-                        </ul>
+        <div class="menue-box">
+            <div class="nav-top">
+                <div class="margin">
+                    <div class="logo">
+                        <a href=""><img src="images/logo.png" alt="萤石商城官网"></a>
                     </div>
-                </div>
-                <div class="searchbox">
-                    <div class="form-group">
-                        <form action="">
-                            <span class="span"><input type="text" name="" id=""></span>
-                            <button class="search" type="submit"><i></i></button>
-                        </form>
+                    <div class="nav-list">
+                        <div class="middle-inner">
+                            <ul class="innerscroll">
+                                <li class="list-item"><a href="" class="item-link first">摄像机</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">智能锁</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">猫眼门铃</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">套装方案</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">录像机</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">传感报警</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">智能控制</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">运动数码</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">儿童看护</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">智能存储</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">网络通讯</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">配件</a><div class="itemchild"></div></li>
+                                <li class="list-item"><a href="" class="item-link">更多</a><div class="itemchild"></div></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="hotwords">
-                        <a href="" class="words-item">C6C</a>
-                        <a href="" class="words-item">C3W</a>
+                    <div class="searchbox">
+                        <div class="form-group">
+                            <form action="">
+                                <span class="span"><input type="text" name="" id=""></span>
+                                <button class="search" type="button"><i></i></button>
+                            </form>
+                        </div>
+                        <div class="hotwords">
+                            <a href="" class="words-item">C6C</a>
+                            <a href="" class="words-item">C3W</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="child-list">
+                <ul id="menue">
+                </ul>
+            </div>
         </div>
-        <div class="child-list">
-            <ul>
-                <li class="childitem">
-                    <div class="figure">
-                        <a href=""><img src="images/7f3df4980472e7b5549fb9c14a630b95_middle.jpg-0249625952.jpg" alt=""></a>
-                    </div>
-                    <h4 class="goodstitle"><a href="" title="【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头">【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头</a></h4>
-                    <p class="price">￥759(起)</p>
-                </li>
-                <li class="childitem">
-                    <div class="figure">
-                        <a href=""><img src="images/7f3df4980472e7b5549fb9c14a630b95_middle.jpg-0249625952.jpg" alt=""></a>
-                    </div>
-                    <h4 class="goodstitle"><a href="" title="【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头">【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头</a></h4>
-                    <p class="price">￥759(起)</p>
-                </li>
-                <li class="childitem">
-                    <div class="figure">
-                        <a href=""><img src="images/7f3df4980472e7b5549fb9c14a630b95_middle.jpg-0249625952.jpg" alt=""></a>
-                    </div>
-                    <h4 class="goodstitle"><a href="" title="【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头">【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头</a></h4>
-                    <p class="price">￥759(起)</p>
-                </li>
-                <li class="childitem">
-                    <div class="figure">
-                        <a href=""><img src="images/7f3df4980472e7b5549fb9c14a630b95_middle.jpg-0249625952.jpg" alt=""></a>
-                    </div>
-                    <h4 class="goodstitle"><a href="" title="【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头">【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头</a></h4>
-                    <p class="price">￥759(起)</p>
-                </li>
-                <li class="childitem enditem">
-                    <div class="figure">
-                        <a href=""><img src="images/7f3df4980472e7b5549fb9c14a630b95_middle.jpg-0249625952.jpg" alt=""></a>
-                    </div>
-                    <h4 class="goodstitle"><a href="" title="【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头">【新品上市-双12预售】POE500万高清星光夜视套装C5HC-加送1路摄像头</a></h4>
-                    <p class="price">￥759(起)</p>
-                </li>
-            </ul>
-        </div>
-    </div> -->
-    <div class="top"></div>
+    </div>
+    <!-- <div class="top"></div> -->
     <div class="margin">
         <div class="bannercont">
             <div class="banner box">
@@ -164,97 +147,7 @@
                         </div>
                     </div>
                     <div class="goodslist">
-                        <ul>
-                            <li class="goodsitem">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem noright">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom noright">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
+                        <ul id="shoplist">
                         </ul>
                     </div>
                 </div>
@@ -273,97 +166,7 @@
                         </div>
                     </div>
                     <div class="goodslist">
-                        <ul>
-                            <li class="goodsitem">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem noright">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom noright">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
+                        <ul id="familylist">
                         </ul>
                     </div>
                 </div>
@@ -431,52 +234,8 @@
                         </div>
                     </div>
                     <div class="goodslist">
-                        <ul>
-                            <li class="goodsitem nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem noright nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
+                        <ul id="suitslist">
+                            
                         </ul>
                     </div>
                 </div>
@@ -494,127 +253,8 @@
                         </div>
                     </div>
                     <div class="goodslist">
-                        <ul>
-                            <li class="goodsitem">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem noright">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="goodsitem nobottom noright">
-                                <div class="figure">
-                                    <a href="">
-                                        <img src="https://mfs.ys7.com/mall/5dd3625f6652783a547234cbf8cbf989_middle.jpg" alt="">
-                                    </a>
-                                    <h4 class="goodstitle"><a href="">
-                                            【双12预售专享】C3C高清互联网摄像机全彩标准版-前1000名预定送16G卡 每个ID一张                                    </a></h4>
-                                    <p class="price">￥229（起）</p>
-                                    <p class="comment"></p>
-                                    <div class="keywords">
-                                        <a href="">
-                                                12月1-12月11日预定前1000名预定送16G卡， 每个ID限送一张，12月12日支付尾款；【全彩升级】200万超清，夜间彩色监控，H.265智能编码，AI人形检测，防水防尘                                    </a>
-                                    </div>
-                                </div>
-                            </li>
+                        <ul id="partlist">
+                            
                         </ul>
                     </div>
                 </div>
@@ -644,14 +284,14 @@
                     <a href=""></a>
                 </div>
                 <div class="cardbody">
-                    <div class="serviceitem">
-                        <a href=""><img src="https://mfs.ys7.com/mall/2022318335828195.jpg?0249625952"></a>
+                    <div class="videoitem">
+                        <a href=""><img src="images/s1.jpg"></a>
                     </div>
-                    <div class="serviceitem">
-                        <a href=""><img src="https://mfs.ys7.com/mall/2022318335828195.jpg?0249625952"></a>
+                    <div class="videoitem">
+                        <a href=""><img src="images/s2.jpg"></a>
                     </div>
-                    <div class="sevriceitem enditem">
-                        <a href=""><img src="https://mfs.ys7.com/mall/2022318335828195.jpg?0249625952"></a>
+                    <div class="videoitem enditem">
+                        <a href=""><img src="images/s3.jpg"></a>
                     </div>
                 </div>
             </div>
@@ -822,61 +462,36 @@
 <!-- <script src="libs/jquery.js"></script> -->
 <script src="js/jquery.banner.2.js"></script>
 <script>
-    //使用该插件必须的格式和基础样式设置
     $(".banner").banner({
-        // 图片 按钮 小按钮 当前显示页 自动播放 移动时间  延迟时间（显示多长时间切换）
         items:$(".banner").find("img"),
-        // 按钮可以自定义，不传即为不需要
-        // left:$(".banner").find("#left"),
-        // right:$(".banner").find("#right"),
-        list:true,  //根据用户需求，默认为有，可以自定义false取消  
-        autoPlay:true, //根据用户需求，默认为有，可以自定义false取消
-        moveTime:200,  //移动时间和延时有默认值 ，可以自定义
+        list:true,  
+        autoPlay:true,
+        moveTime:200, 
         delayTime:2000  
     })
     $(".goodsbanner").banner({
-        // 图片 按钮 小按钮 当前显示页 自动播放 移动时间  延迟时间（显示多长时间切换）
         items:$(".goodsbanner").find("img"),
-        // 按钮可以自定义，不传即为不需要
-        // left:$(".banner").find("#left"),
-        // right:$(".banner").find("#right"),
-        list:true,  //根据用户需求，默认为有，可以自定义false取消  
-        autoPlay:true, //根据用户需求，默认为有，可以自定义false取消
-        moveTime:200,  //移动时间和延时有默认值 ，可以自定义
+        list:true, 
+        autoPlay:true,
+        moveTime:200,  
         delayTime:2000  
     })
     $(".goodsbanner1").banner({
-        // 图片 按钮 小按钮 当前显示页 自动播放 移动时间  延迟时间（显示多长时间切换）
         items:$(".goodsbanner1").find("img"),
-        // 按钮可以自定义，不传即为不需要
-        // left:$(".banner").find("#left"),
-        // right:$(".banner").find("#right"),
-        list:true,  //根据用户需求，默认为有，可以自定义false取消  
-        autoPlay:true, //根据用户需求，默认为有，可以自定义false取消
-        moveTime:200,  //移动时间和延时有默认值 ，可以自定义
+        list:true,  
+        autoPlay:true, 
+        moveTime:200,
         delayTime:2000  
     })
     $(".goodsbanner2").banner({
-        // 图片 按钮 小按钮 当前显示页 自动播放 移动时间  延迟时间（显示多长时间切换）
         items:$(".goodsbanner2").find("img"),
-        // 按钮可以自定义，不传即为不需要
-        // left:$(".banner").find("#left"),
-        // right:$(".banner").find("#right"),
-        list:false,  //根据用户需求，默认为有，可以自定义false取消  
-        autoPlay:false, //根据用户需求，默认为有，可以自定义false取消
-        // moveTime:200,  //移动时间和延时有默认值 ，可以自定义
-        // delayTime:2000  
+        list:false,    
+        autoPlay:false, 
     })
     $(".goodsbanner3").banner({
-        // 图片 按钮 小按钮 当前显示页 自动播放 移动时间  延迟时间（显示多长时间切换）
         items:$(".goodsbanner3").find("img"),
-        // 按钮可以自定义，不传即为不需要
-        // left:$(".banner").find("#left"),
-        // right:$(".banner").find("#right"),
-        list:false,  //根据用户需求，默认为有，可以自定义false取消  
-        autoPlay:false, //根据用户需求，默认为有，可以自定义false取消
-        // moveTime:200,  //移动时间和延时有默认值 ，可以自定义
-        // delayTime:2000  
+        list:false,  
+        autoPlay:false, 
     })
     $(".sidebar").find("li").click(function(){
         var i=$(this).index();
@@ -889,10 +504,165 @@
 				scrollTop:t
             })
     })
-    $(".nav-list").find(".item-link").mouseenter(function(){
-        $(".child-list").css({height:0}).stop().animate({height:200});
-    })
-        console.log($(".nav-list"));
-        
+    class List{
+        constructor(){
+            this.searchurl="http://localhost:83/json/search.json";
+            this.url="http://localhost:83/json/shop.json";
+            this.url1="http://localhost:83/json/family.json";
+            this.url2="http://localhost:83/json/suits.json";
+            this.url3="http://localhost:83/json/part.json";
+            this.url4="http://localhost:83/json/shop.json";
+            this.cont=document.getElementById("shoplist");
+            this.cont1=document.getElementById("familylist");
+            this.cont2=document.getElementById("suitslist");
+            this.cont3=document.getElementById("partlist");
+            this.cont4=document.getElementById("menue");
+            this.oinp=document.querySelector(".span input");
+            this.obtn=document.querySelector(".search");
+            this.load();
+            // this.addEvent();
+            this.id=[];
+        }
+        load(){
+            var that=this;
+            ajaxGet(this.url,function(res){
+                that.res=JSON.parse(res);
+                that.display();
+            })
+            ajaxGet(this.url1,function(res1){
+                that.res1=JSON.parse(res1);
+                that.display1();
+            })
+            ajaxGet(this.url2,function(res2){
+                that.res2=JSON.parse(res2);
+                that.display2();
+            })
+            ajaxGet(this.url3,function(res3){
+                that.res3=JSON.parse(res3);
+                that.display3();
+            })
+            ajaxGet(this.url4,function(res4){
+                that.res4=JSON.parse(res4);
+                that.display4();
+            })
+            //从这里开始
+            ajaxGet(this.searchurl,function(Res){
+                that.Res=JSON.parse(Res);
+                console.log(that.Res);
+                that.addEvent();
+            })
+        }
+        addEvent(){
+            var that=this;
+            this.obtn.onclick=function(){
+                that.val=that.oinp.value;
+                // console.log(that.val);
+                for(var i=0;i<that.Res.length;i++){
+                    if(that.Res[i].name.includes(that.val)){
+                      that.id.push(that.Res[i].goodsId);
+                    }
+                }
+                if(that.id.length>0){
+                    location.href="list.html";
+                }
+                      that.setCookie();
+            }
+        }
+        setCookie(){
+            console.log(this.id);
+            setCookie("msgId",JSON.stringify(this.id))
+            
+        }
+        display(){
+            var str="";
+            for(var i=0;i<this.res.length;i++){
+            str+=`<li class="goodsitem">
+                    <div class="figure">
+                        <a href="">
+                            <img src="${this.res[i].img}" alt="">
+                        </a>
+                        <h4 class="goodstitle">${this.res[i].name}<a href=""></a></h4>
+                        <p class="price">${this.res[i].price}</p>
+                        <p class="comment"></p>
+                        <div class="keywords">
+                            <a href="">${this.res[i].title}</a>
+                        </div>
+                    </div>
+                </li>`;
+            }
+            this.cont.innerHTML=str;
+        }
+        display1(){
+            var str1="";
+            for(var i=0;i<this.res1.length;i++){
+            str1+=`<li class="goodsitem">
+                    <div class="figure">
+                        <a href="">
+                            <img src="${this.res1[i].img}" alt="">
+                        </a>
+                        <h4 class="goodstitle">${this.res1[i].name}<a href=""></a></h4>
+                        <p class="price">${this.res1[i].price}</p>
+                        <p class="comment"></p>
+                        <div class="keywords">
+                            <a href="">${this.res1[i].title}</a>
+                        </div>
+                    </div>
+                </li>`;
+            }
+            this.cont1.innerHTML=str1;
+        }
+        display2(){
+            var str2="";
+            for(var i=0;i<this.res2.length;i++){
+            str2+=`<li class="goodsitem">
+                    <div class="figure">
+                        <a href="">
+                            <img src="${this.res2[i].img}" alt="">
+                        </a>
+                        <h4 class="goodstitle">${this.res2[i].name}<a href=""></a></h4>
+                        <p class="price">${this.res2[i].price}</p>
+                        <p class="comment"></p>
+                        <div class="keywords">
+                            <a href="">${this.res2[i].title}</a>
+                        </div>
+                    </div>
+                </li>`;
+            }
+            this.cont2.innerHTML=str2;
+        }
+        display3(){
+            var str3="";
+            for(var i=0;i<this.res3.length;i++){
+            str3+=`<li class="goodsitem">
+                    <div class="figure">
+                        <a href="">
+                            <img src="${this.res3[i].img}" alt="">
+                        </a>
+                        <h4 class="goodstitle">${this.res3[i].name}<a href=""></a></h4>
+                        <p class="price">${this.res3[i].price}</p>
+                        <p class="comment"></p>
+                        <div class="keywords">
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </li>`;
+            }
+            this.cont3.innerHTML=str3;
+        }
+        display4(){
+            var str4="";
+            for(var i=0;i<this.res4.length;i++){
+            str4+=`<li class="childitem">
+                    <div class="figure">
+                        <a href=""><img src="${this.res4[i].img}" alt=""></a>
+                    </div>
+                    <h4 class="goodstitle"><a href="" title="${this.res4[i].name}">${this.res4[i].name}</a></h4>
+                    <p class="price">${this.res4[i].price}</p>
+                </li>`;
+            }
+            this.cont4.innerHTML=str4;
+        }
+    }
+    new List();
 </script>
 </html>

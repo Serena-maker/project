@@ -6,12 +6,12 @@ li{float: left;
 a{color: #fff;display: block;line-height: 40px; padding:0 10px;
 i{display: inline-block;height: 9px;width: 12px;vertical-align: middle;background: url(../images/arrow-white.png) no-repeat center center;}
     }
-a:hover{color:#525252+80 ;}
+a:hover{color:#777 ;}
 }}
 #nav .nav-toolbar ul.toolbar-r{height: 40px;float: right;
 li{float: left;
 a{color: #fff; padding: 0 15px;display: block;line-height: 40px;}
-a:hover{color:#525252+80 ;}
+a:hover{color:#777 ;}
 .cart{padding: 0 15px;line-height:40px;background-color: #f26a18;cursor: pointer;
 i.car{display: inline-block;width:20px;height: 16px; vertical-align: middle;background: url(../images/carts.png) no-repeat center;}
 span{color: #fff;}}}
@@ -38,7 +38,12 @@ ul.loginbar{float: right;
 li{float: left;
 a{display: block;line-height: 40px;padding: 0 15px;color: #fff;position: relative;}
 a:after{content: "";position: absolute;height: 20px;width: 1px;top: 10px;right: 0;background: #fff;}
-a:hover{color:#525252+80 ;}}
+a:hover{color:#777 ;}}
+}
+.menue-box{
+    position: relative;
+    height: 90px;
+    overflow: hidden;
 }
 .nav-top{
         height: 90px;
@@ -68,6 +73,9 @@ a:hover{color:#525252+80 ;}}
                         padding: 40px 15px 20px;
                         font: 14px/20px "";}
                     a.first{padding: 40px 15px 20px 0px;}
+                    a:hover{
+                        color: #f26a18;
+                    }
                 }
             }
         }
@@ -84,7 +92,7 @@ a:hover{color:#525252+80 ;}}
         direction: ltr;
         height: 40px;
         }
-        button.search{
+        .search{
             position: absolute;
             top: 25px;
             right: 0;
@@ -102,7 +110,7 @@ a:hover{color:#525252+80 ;}}
                 background: url(../images/search-normal.png);
             }
         }
-        button.search:hover{
+        .search:hover{
             background:#f26a18;
             i{background: url(../images/search-sel.png);}
         }
@@ -119,13 +127,14 @@ a:hover{color:#525252+80 ;}}
         a:hover{background: #f26a18;color: #fff;}}}
 }
 .child-list{
-    display: none;
+    // display: none;
     position: absolute;
-    top: 120px;
+    top: 90px;
     left: 0;
     width: 100%;
     z-index: 50;
     height: 200px;
+    overflow: hidden;
     background: #fff;
     ul{
         margin: auto;

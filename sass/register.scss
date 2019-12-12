@@ -26,7 +26,7 @@ body{
                 height: 22px;
                 padding-left: 5px;
                 padding-right: 5px;
-                float: left;
+                // float: left;
                 color: #BEBEBE;
                 line-height: 20px;
                 a{
@@ -130,6 +130,11 @@ body{
                 &.testcode{
                     width: 80px;
                 }
+                // &#register{
+                //     width: 120px;
+                //     height: 40px;
+                //     background: #f45235;
+                // }
             }
             a{
                 text-decoration: underline;

@@ -5,8 +5,189 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="pub/pub.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <script src="libs/jquery.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/cookie.js"></script>
+    <script>
+    $(function(){
+        $(".top").load("http://localhost:83/pub/pub.html .nava");
+        $(".foot").load("http://localhost:83/pub/pub.html .foota");
+        function dateDiff(date1,date2){
+        var d1 = new Date(date1);
+        var d2 = date2 ? new Date(date2) : new Date();
+        var n = Math.abs(d1.getTime()-d2.getTime());
+        var days = parseInt(n / (1000 * 60 * 60 * 24));
+        var hours = parseInt((n % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = parseInt((n % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = parseInt((n % (1000 * 60)) / 1000);
+        var obj={
+            "day":days,
+            "hour":hours,
+            "minute":minutes,
+            "second":seconds
+        };
+        return obj;
+    }
+    setInterval(()=>{
+             var t=dateDiff("2019/12/13 0:0:0");
+            $(".timer-cont").find(".days").html(t.day);
+            $(".timer-cont").find(".hours").html(t.hour);
+            $(".timer-cont").find(".minutes").html(t.minute);
+            $(".timer-cont").find(".seconds").html(t.second);
+        },1000)
+    })
+    window.onload=function(){
+        $(".middle-inner").find(".list-item").mouseenter(function(){
+            $(".menue-box").css({height:90}).stop().animate({height:290},300);
+        })
+        $(".menue-box").mouseleave(function(){
+            $(".menue-box").css({height:290}).stop().animate({height:90},300);
+        })
+    }
+    </script>
 </head>
 <body>
-    
+    <div class="top"></div>
+    <div class="productcont">
+        <div class="cont-header margin">
+            <span class="pro-title">【下单送网线】200万高清POE防水套装/1080P/4mm</span>
+            <ul>
+                <li class="titem">概述</li>
+                <li class="titem">详细参数</li>
+                <li class="titem">评论</li>
+                <li class="titem noright">附近体验店</li>
+                <li class="titem cart noright"><a href="car.html">加入购物车</a></li>
+            </ul>
+        </div>
+        <div class="pro-mag">
+            <div class="sBox">
+                <img src="images/1.jpg"/>
+                <span></span>
+            </div>
+            <div class="bBox">
+                <img src="images/1.jpg"/>
+            </div>
+            <div class="describe">
+                <h3>【免插电源】C4T半球互联网摄像机（POE版1080P）</h3>
+                <p>479元</p>
+                <p>可POE网线供电，防水拾音，高清夜视</p>
+                <p>更多详情可以进店咨询哦，分店遍布全国各大城市</p>
+            </div>
+        </div>
+        <div class="img-cont">
+            <ul>
+                <li class="img-item">
+                    <img src="">
+                </li>
+            </ul>
+        </div>
+        <div class="timer-cont">
+            <p>
+                <!-- <span class="timer-icon">&nbsp;</span> -->
+                <span class="timer-describe">距离限时特惠结束仅剩</span>
+                <span class="timer-section">
+                    <span>
+                        <span class="days"></span>&nbsp;天&nbsp;
+                    </span>
+                    <span>
+                        <span class="hours"></span>&nbsp;时&nbsp;
+                    </span>
+                    <span>
+                        <span class="minutes"></span>&nbsp;分&nbsp;
+                    </span>
+                    <span>
+                        <span class="seconds"></span>&nbsp;秒&nbsp;
+                    </span>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="foot"></div>
 </body>
+<script>
+    class Magnifier{
+			constructor(){
+//				1.选元素
+				this.sBox = document.querySelector(".sBox");
+				this.sSpan = document.querySelector(".sBox span");
+				this.bBox = document.querySelector(".bBox");
+				this.bImg = document.querySelector(".bBox img");
+				
+//				2.绑定事件
+				this.init()
+			}
+			init(){
+				var that = this;
+//				绑定事件
+//				进入
+				this.sBox.onmouseover = function(){
+//					3.显示隐藏的内容
+					that.over()
+				}
+//				移动
+				this.sBox.onmousemove = function(eve){
+                    var e = eve || window.event;
+                    
+//					4.移动时计算比例
+					that.move(e)
+				}
+//				离开
+				this.sBox.onmouseout = function(){
+//					5.隐藏
+					that.out()
+				}
+			}
+			over(){
+//				显示
+				this.sSpan.style.display = "block";
+				this.bBox.style.display = "block";
+//				根据右边图和框的比例,计算span的宽高
+				this.sSpanW = (this.bBox.offsetWidth / this.bImg.offsetWidth * this.sBox.offsetWidth);
+				this.sSpanH = (this.bBox.offsetHeight / this.bImg.offsetHeight * this.sBox.offsetHeight);
+//				设置span的宽高
+				this.sSpan.style.width = this.sSpanW + "px";
+				this.sSpan.style.height = this.sSpanH + "px";
+				
+//				提前获取尺寸,方便将来使用
+				this.sW = this.sBox.offsetWidth;
+				this.sH = this.sBox.offsetHeight;
+
+				this.bW = this.bBox.offsetWidth;
+				this.bH = this.bBox.offsetHeight;
+
+				this.bImgW = this.bImg.offsetWidth;
+				this.bImgH = this.bImg.offsetHeight;
+			}
+			move(e){
+//				计算span要移动的left和top
+				var l = e.clientX - this.sBox.offsetLeft - this.sSpan.offsetWidth/2;
+				var t = e.clientY - this.sBox.offsetTop - this.sSpan.offsetHeight/2;
+//				span的边界限定
+				if(l<0) l=0;
+				if(t<0) t=0;
+				if(l>this.sW - this.sSpanW){
+					l = this.sW - this.sSpanW;
+				}
+				if(t>this.sH - this.sSpanH){
+					t = this.sH - this.sSpanH;
+				}
+//				设置span的位置
+				this.sSpan.style.left = l + "px";
+				this.sSpan.style.top = t + "px";
+//				根据span移动的位置,计算出比例,在根据比例,计算右边大图要移动的距离
+				this.bImg.style.left = l / (this.sW - this.sSpanW) * (this.bW - this.bImgW) + "px";
+				this.bImg.style.top = t / (this.sH - this.sSpanH) * (this.bH - this.bImgH) + "px";
+			}
+			out(){
+//				隐藏
+				this.sSpan.style.display = "none";
+				this.bBox.style.display = "none";
+			}
+		}
+		
+		new Magnifier();
+</script>
 </html>

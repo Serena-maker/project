@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="pub/pub.css">
     <link rel="stylesheet" href="css/public.css">
-    <link rel="stylesheet" href="sass/car.css">
+    <link rel="stylesheet" href="css/car.css">
     <script src="libs/jquery.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/cookie.js"></script>
@@ -16,6 +16,14 @@
         $(".top").load("http://localhost:83/pub/pub.html .nava")
         $(".foot").load("http://localhost:83/pub/pub.html .foota")
     })
+    window.onload=function(){
+        $(".middle-inner").find(".list-item").mouseenter(function(){
+            $(".menue-box").css({height:90}).stop().animate({height:290},300);
+        })
+        $(".menue-box").mouseleave(function(){
+            $(".menue-box").css({height:290}).stop().animate({height:90},300);
+        })
+    }
     </script>
 </head>
 <body>

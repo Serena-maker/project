@@ -6,12 +6,12 @@ li{float: left;
 a{color: #fff;display: block;line-height: 40px; padding:0 10px;
 i{display: inline-block;height: 9px;width: 12px;vertical-align: middle;background: url(../images/arrow-white.png) no-repeat center center;}
     }
-a:hover{color:#525252+80 ;}
+a:hover{color:#777 ;}
 }}
 #nav .nav-toolbar ul.toolbar-r{height: 40px;float: right;
 li{float: left;
 a{color: #fff; padding: 0 15px;display: block;line-height: 40px;}
-a:hover{color:#525252+80 ;}
+a:hover{color:#777 ;}
 .cart{padding: 0 15px;line-height:40px;background-color: #f26a18;cursor: pointer;
 i.car{display: inline-block;width:20px;height: 16px; vertical-align: middle;background: url(../images/carts.png) no-repeat center;}
 span{color: #fff;}}}
@@ -38,7 +38,12 @@ ul.loginbar{float: right;
 li{float: left;
 a{display: block;line-height: 40px;padding: 0 15px;color: #fff;position: relative;}
 a:after{content: "";position: absolute;height: 20px;width: 1px;top: 10px;right: 0;background: #fff;}
-a:hover{color:#525252+80 ;}}
+a:hover{color:#777 ;}}
+}
+.menue-box{
+    position: relative;
+    height: 90px;
+    overflow: hidden;
 }
 .nav-top{
         height: 90px;
@@ -68,6 +73,9 @@ a:hover{color:#525252+80 ;}}
                         padding: 40px 15px 20px;
                         font: 14px/20px "";}
                     a.first{padding: 40px 15px 20px 0px;}
+                    a:hover{
+                        color: #f26a18;
+                    }
                 }
             }
         }
@@ -121,11 +129,11 @@ a:hover{color:#525252+80 ;}}
 .child-list{
     // display: none;
     position: absolute;
-    top: 120px;
+    top: 90px;
     left: 0;
     width: 100%;
     z-index: 50;
-    height: 0px;
+    height: 200px;
     overflow: hidden;
     background: #fff;
     ul{
@@ -386,7 +394,7 @@ img{width:1200px;height:460px;}}}
             }
         }
     }
-    .servicecard,.videocard{
+    .servicecard{
         margin-top: 43px;
         position: relative;
         .cardheader{
@@ -424,13 +432,52 @@ img{width:1200px;height:460px;}}}
             margin-top: 55px;
         }
     }
+    .videocard{
+        margin-top: 43px;
+        position: relative;
+        .cardheader{
+            position: relative;
+            width:100%;
+            h2{
+                font-weight: 200;
+                font-size: 24px;
+                color: #2b2b2b;
+            }
+            a{
+                color: #232323;
+                position: absolute;
+                right: 0;
+                top: 6px;
+                font-size: 12px;
+            }
+        }
+        .cardbody{
+            margin-top: 18px;
+            .videoitem{
+                float: left;
+                width: 395px;
+                height: 326px;
+                margin-right: 7px;
+                &.enditem{
+                    margin-right: 0;
+                }
+            }
+        }
+        .cardfoot{
+            height: 1px;
+            width: 100%;
+            background: #e2e2e2;
+            margin-top: 55px;
+        }
+    }
+    
 
 }
 #footer{
         height: 530px;
         width: 100%;
         background-color: #1f1f1f;
-        margin-top: 20px;
+        margin-top: 30px;
         .service{
             width: 1200px;
             margin: 0 auto;

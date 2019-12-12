@@ -40,7 +40,7 @@
 }
 
 #nav .nav-toolbar ul.toolbar-l li a:hover {
-  color: #a2a2a2;
+  color: #777;
 }
 
 #nav .nav-toolbar ul.toolbar-r {
@@ -60,7 +60,7 @@
 }
 
 #nav .nav-toolbar ul.toolbar-r li a:hover {
-  color: #a2a2a2;
+  color: #777;
 }
 
 #nav .nav-toolbar ul.toolbar-r li .cart {
@@ -198,7 +198,13 @@ ul.loginbar li a:after {
 }
 
 ul.loginbar li a:hover {
-  color: #a2a2a2;
+  color: #777;
+}
+
+.menue-box {
+  position: relative;
+  height: 90px;
+  overflow: hidden;
 }
 
 .nav-top {
@@ -247,6 +253,10 @@ ul.loginbar li a:hover {
   padding: 40px 15px 20px 0px;
 }
 
+.nav-top .middle-inner .innerscroll li.list-item a:hover {
+  color: #f26a18;
+}
+
 .nav-top .searchbox {
   float: right;
   position: relative;
@@ -263,7 +273,7 @@ ul.loginbar li a:hover {
   height: 40px;
 }
 
-.nav-top .searchbox button.search {
+.nav-top .searchbox .search {
   position: absolute;
   top: 25px;
   right: 0;
@@ -275,7 +285,7 @@ ul.loginbar li a:hover {
   padding: 0;
 }
 
-.nav-top .searchbox button.search i {
+.nav-top .searchbox .search i {
   display: inline-block;
   width: 50px;
   height: 40px;
@@ -283,11 +293,11 @@ ul.loginbar li a:hover {
   background: url(../images/search-normal.png);
 }
 
-.nav-top .searchbox button.search:hover {
+.nav-top .searchbox .search:hover {
   background: #f26a18;
 }
 
-.nav-top .searchbox button.search:hover i {
+.nav-top .searchbox .search:hover i {
   background: url(../images/search-sel.png);
 }
 
@@ -323,13 +333,13 @@ ul.loginbar li a:hover {
 }
 
 .child-list {
-  display: none;
   position: absolute;
-  top: 120px;
+  top: 90px;
   left: 0;
   width: 100%;
   z-index: 50;
   height: 200px;
+  overflow: hidden;
   background: #fff;
 }
 
